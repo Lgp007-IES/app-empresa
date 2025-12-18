@@ -1,0 +1,39 @@
+@startuml
+
+class Persona {
+  - nombre
+  - edad
+  + mostrar()
+}
+
+class Empleado {
+  - sueldo_bruto
+  + mostrar()
+  + calcular_salario_neto()
+}
+
+class Directivo {
+  - categoria
+  + mostrar()
+}
+
+class Cliente {
+  - telefono_de_contacto
+  + mostrar()
+}
+
+class Empresa {
+  - nombre
+}
+
+' Herencia
+Persona <|-- Empleado
+Persona <|-- Cliente
+Empleado <|-- Directivo
+
+' Asociaciones
+Empleado "0..*" -- "0..*" Empleado : subordinados
+Empresa "1" *-- "1..*" Empleado : empleados
+Empresa "1" -- "0..*" Cliente : clientes
+
+@enduml
