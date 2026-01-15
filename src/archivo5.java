@@ -1,0 +1,2 @@
+public class archivo5 {
+}
